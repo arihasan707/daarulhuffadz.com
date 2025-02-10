@@ -17,10 +17,12 @@ class Galeri extends CI_Controller
             'galeri' => $this->app->get_all('tbl_galeri')->result()
         ];
 
+        $maps_footer['maps'] = $this->app->all('tbl_cabang')->result();
+
         $this->load->view('template/v_header', $title);
         $this->load->view('v_nav');
         $this->load->view('galeri/v_galeri', $data);
-        $this->load->view('template/v_footer');
+        $this->load->view('template/v_footer', $maps_footer);
     }
 
     public function aktivitas($slug)
@@ -36,9 +38,11 @@ class Galeri extends CI_Controller
             'fotos' => $this->app->get_where('tbl_foto_galeri', ['galeri_id' => $foto->id])->result()
         ];
 
+        $maps_footer['maps'] = $this->app->all('tbl_cabang')->result();
+
         $this->load->view('template/v_header', $title);
         $this->load->view('v_nav');
         $this->load->view('galeri/v_foto', $data);
-        $this->load->view('template/v_footer');
+        $this->load->view('template/v_footer', $maps_footer);
     }
 }
