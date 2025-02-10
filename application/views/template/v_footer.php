@@ -93,10 +93,10 @@
                                                 Admin Boarding - 0822 2111 5979
                                             </a>
                                             <a href="https://api.whatsapp.com/send?phone=6282122022948">
-                                                Admin DH Institute - 0821 2202 2948  
+                                                Admin DH Institute - 0821 2202 2948
                                             </a>
                                             <a href="https://api.whatsapp.com/send?phone=6281399251460">
-                                                Admin Program Online - 0813 9925 1460  
+                                                Admin Program Online - 0813 9925 1460
                                             </a>
                                         </div>
                                     </div>
@@ -109,10 +109,10 @@
                                     </div>
                                     <div class="col-11 mt-1">
                                         <div class="wa">
-                                            <?php foreach($maps as $row) { ?>
-                                            <a target="blank"
-                                                <?= ($row->map_google != Null ) ? "href=" . $row->map_google : "href=#"  ?>
-                                                class="btn-map"><?=$row->nm_cbng?></a>
+                                            <?php foreach ($maps as $row) { ?>
+                                                <a target="blank"
+                                                    <?= ($row->map_google != Null) ? "href=" . $row->map_google : "href=#"  ?>
+                                                    class="btn-map"><?= $row->nm_cbng ?></a>
                                             <?php } ?>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@
                 <div class="col-12">
                     <div class="tp-copyright text-center">
                         <p>© <script>
-                            document.write(new Date().getFullYear())
+                                document.write(new Date().getFullYear())
                             </script> Daarul Huffadz Indonesia</p>
                     </div>
                 </div>
@@ -160,7 +160,7 @@
 <script src="<?= base_url() ?>assets/frontend/vendor/jquery-validation/additional-methods.min.js"></script>
 
 <!-- sweetalert -->
-<script src="<?= base_url() ?>assets/frontend/vendor/sweet/sweetalert2.all.min.js"></script>\
+<script src="<?= base_url() ?>assets/frontend/vendor/sweet/sweetalert2.all.min.js"></script>
 
 <!-- lightbox image -->
 <script src="<?= base_url('assets/frontend/js/vendor/fslightbox.js') ?>"></script>
