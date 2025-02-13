@@ -10,7 +10,7 @@
                     style="background-image: url(&quot;https://www.daarulhuffadz.com/assets/frontend/img/slider/slider1_3.jpg&quot;);">
                 </div>
                 <div class="slider-img">
-                    <img src="<?=base_url()?>/assets/frontend/img/slider/slider.jpg" class="img-fluid"
+                    <img src="<?= base_url() ?>/assets/frontend/img/slider/slider.jpg" class="img-fluid"
                         alt="img not found">
                 </div>
                 <div class="container">
@@ -46,7 +46,7 @@
                     style="background-image: url(&quot;https://www.daarulhuffadz.com/assets/frontend/img/slider/slider1_2.jpg&quot;);">
                 </div>
                 <div class="slider-img">
-                    <img src="<?= base_url()?>/assets/frontend/img/slider/slider1.jpg" class="img-fluid"
+                    <img src="<?= base_url() ?>/assets/frontend/img/slider/slider1.jpg" class="img-fluid"
                         alt="img not found">
                 </div>
                 <div class="container">
@@ -143,25 +143,25 @@
                     <h2 class="tp-section-title-two" style="color:white;">Pilihan Program Unggulan</h2>
                 </div>
             </div>
-            <?php foreach($prog as $row) {?>
-            <div class="col-xl-2 col-sm-6">
-                <div class="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
-                    <?php if($row->diskon == '1') {?>
-                    <div class="col disc">
-                        <span>PROMO</span>
-                    </div>
-                    <?php };?>
-                    <div class="tp-cta-two mb-10 wow fadeInUp" data-wow-delay=".2s">
-                        <div class="tp-feature-three-text">
-                            <h4 class="tp-feature-three-title"><?=$row->nama_prog?></h4>
+            <?php foreach ($prog as $row) { ?>
+                <div class="col-xl-2 col-sm-6">
+                    <div class="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
+                        <?php if ($row->diskon == '1') { ?>
+                            <div class="col disc">
+                                <span>PROMO</span>
+                            </div>
+                        <?php }; ?>
+                        <div class="tp-cta-two mb-10 wow fadeInUp" data-wow-delay=".2s">
+                            <div class="tp-feature-three-text">
+                                <h4 class="tp-feature-three-title"><?= $row->nama_prog ?></h4>
+                            </div>
+                        </div>
+                        <div class="btn1 mb-3">
+                            <a href="<?= base_url('pmb_online/pendaftaran/' . $row->slug) ?>">Daftar</a>
                         </div>
                     </div>
-                    <div class="btn1 mb-3">
-                        <a href="<?=base_url('pmb_online/pendaftaran/' . $row->slug)?>">Daftar</a>
-                    </div>
                 </div>
-            </div>
-            <?php }?>
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -226,10 +226,10 @@
                 </div>
                 <div id="pmb" class="swiper">
                     <div class="swiper-wrapper">
-                        <?php foreach($flayer as $f) { ?>
-                        <div class="swiper-slide">
-                            <img src="<?= base_url()?>assets/backend/upload/flayer/<?= $f->gbr?>">
-                        </div>
+                        <?php foreach ($flayer as $f) { ?>
+                            <div class="swiper-slide">
+                                <img src="<?= base_url() ?>assets/backend/upload/flayer/<?= $f->gbr ?>">
+                            </div>
                         <?php } ?>
                     </div>
                     <div class="swiper-pagination"></div>
@@ -416,10 +416,10 @@
                 <div class="section-title-wrapper text-center wow fadeInUp" data-wow-delay=".2s">
                     <h2 class="tp-section-title-two mb-2">Testimoni</h2>
                 </div>
-                
+
                 <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
                             <img src="<?= base_url() ?>assets/backend/upload/testimoni/1.jpg">
                         </div>
                         <div class="swiper-slide">
@@ -431,10 +431,10 @@
                         <div class="swiper-slide">
                             <img src="<?= base_url() ?>assets/backend/upload/testimoni/4.jpg">
                         </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-                
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -450,13 +450,13 @@
             <div class="col-lg-12 d-flex justify-content-center media">
                 <div class="row">
                     <div class="col-4">
-                        <img src="<?=base_url()?>assets/frontend/img/tv/1.png">
+                        <img src="<?= base_url() ?>assets/frontend/img/tv/1.png">
                     </div>
                     <div class="col-4">
-                        <img src="<?=base_url()?>assets/frontend/img/tv/2.png">
+                        <img src="<?= base_url() ?>assets/frontend/img/tv/2.png">
                     </div>
                     <div class="col-4">
-                        <img src="<?=base_url()?>assets/frontend/img/tv/3.png">
+                        <img src="<?= base_url() ?>assets/frontend/img/tv/3.png">
                     </div>
                 </div>
             </div>
