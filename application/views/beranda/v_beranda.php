@@ -146,9 +146,9 @@
             <?php foreach ($prog as $row) { ?>
                 <div class="col-xl-2 col-sm-6">
                     <div class="tp-feature-three text-center mb-30 wow fadeInUp" data-wow-delay=".4s">
-                        <?php if ($row->diskon == '1') { ?>
+                        <?php if ($row->diskon == '1' || $row->diskon == '2') { ?>
                             <div class="col disc">
-                                <span>PROMO</span>
+                                <span>DISKON</span>
                             </div>
                         <?php }; ?>
                         <div class="tp-cta-two mb-10 wow fadeInUp" data-wow-delay=".2s">

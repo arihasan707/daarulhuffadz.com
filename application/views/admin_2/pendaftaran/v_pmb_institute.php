@@ -22,6 +22,7 @@
                         <th>Jurusan</th>
                         <th>Nama Lengkap</th>
                         <th>Status</th>
+                        <th>Diskon Program</th>
                         <th>Bukti Tf</th>
                         <th>Aksi</th>
                     </tr>
@@ -61,7 +62,7 @@
                             <td>
                                 <?php
                                 if ($s->status == '0') {
-                                    echo "<span class='badge rounded-pill bg-warning text-dark'>PROSES </span>";
+                                    echo "<span class='badge rounded-pill bg-warning text-dark'>CHECK </span>";
                                 } else {
                                     echo "<span class='badge rounded-pill bg-success'>OK </span>";
                                 }
@@ -69,9 +70,28 @@
                             </td>
                             <td>
                                 <?php
+                                switch ($s->diskon) {
+                                    case '1':
+                                        echo "<span class='badge rounded-pill bg-danger'>Diskon Pendaftaran</span>";
+                                        break;
+                                    case '2':
+                                        echo "<span class='badge rounded-pill bg-danger'>Diskon Uang Masuk</span>";
+                                        break;
+                                    default:
+                                        echo "-";
+                                        break;
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
                                 switch ($s->bukti_tf) {
-                                    case 'promo':
-                                        echo "<span class='badge rounded-pill bg-danger'>Promo PMB</span>";
+                                    case '2':
+                                        echo "<a data-bs-toggle='modal' data-bs-target='#bukti_tf" . $s->id_pmb . "'
+                                        class='btn btn-secondary btn-sm'><i class='bi bi-eye-fill'>Lihat</i></a>";
+                                        break;
+                                    case '1':
+                                        echo "-";
                                         break;
                                     default:
                                         echo "<a data-bs-toggle='modal' data-bs-target='#bukti_tf" . $s->id_pmb . "'
@@ -81,18 +101,22 @@
                                 ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('admin_dua/detail_pmb_institute/') . $s->id_pmb ?>" class='btn btn-primary btn-sm'><i class='bx bx-detail'></i></a>
-                                <a target="blank" href="https://api.whatsapp.com/send?phone=<?= '62' . $s->wa ?>" class="btn btn-success btn-sm"><i class="bi bi-whatsapp"></i></a>
-                                <?php
-                                if ($s->status == '0') {
-                                    echo "<a data-bs-toggle='modal' data-bs-target='#konfirm$s->id_pmb' href='#'
+                                <div class="d-flex justify-content-center gap-1">
+                                    <?php
+                                    if ($s->status == '0') {
+                                        echo "<a data-bs-toggle='modal' data-bs-target='#konfirm$s->id_pmb' href='#'
                                         class='btn btn-secondary btn-sm'>Konfirm</a>";
-                                } else {
-                                    echo "<a id='hapus_institute' data-id='$s->id_pmb' href='#'
-                                        class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
-                                }
-                                ?>
+                                    } else {
+                                        echo "<a href=" . base_url('admin_dua/detail_pmb_institute/' . $s->id_pmb) . " 
+                                    class='btn btn-primary btn-sm'><i class='bx bx-detail'></i></a>";
+                                        echo " <a target='blank' href='https://api.whatsapp.com/send?phone='62' " . $s->wa . " 
+                                    class='btn btn-success btn-sm'><i class='bi bi-whatsapp'></i></a>";
+                                        echo "<a id='hapus_boarding' data-id='$s->id_pmb' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
+                                    }
+                                    ?>
+                                </div>
                             </td>
+
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -103,7 +127,8 @@
 
     <?php foreach ($pmb as $s) { ?>
         <!-- Konfirmasi -->
-        <div class="modal fade" id="konfirm<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="konfirm<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header head">
@@ -138,12 +163,14 @@
                                                                                                                         echo "PAI Plus - Pendidikan Agama Islam";
                                                                                                                         break;
                                                                                                                 }
-                                                                                                                ?>" disabled>
+                                                                                                                ?>"
+                                    disabled>
                             </div>
                             <div class="mb-2">
                                 <label for="exampleFormControlInput1" class="form-label bold">Nama Lengkap
                                     :</label>
-                                <input type="text" value="<?= $s->nama ?>" class="form-control" id="exampleFormControlInput1" disabled>
+                                <input type="text" value="<?= $s->nama ?>" class="form-control"
+                                    id="exampleFormControlInput1" disabled>
                             </div>
                             <div class="form-text">
                                 <b><i> Keterangan: <i></b><br>Sebelum konfirmasi, silahkan cek bukti transfer terlebih
@@ -160,7 +187,8 @@
         </div>
 
         <!-- Bukti TF -->
-        <div class="modal fade" id="bukti_tf<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="bukti_tf<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header head">
@@ -168,7 +196,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-flex justify-content-center">
-                            <img src="<?= base_url() ?>assets/backend/upload/boarding_institute/<?= $s->bukti_tf ?>" width="240px">
+                            <img src="<?= base_url() ?>assets/backend/upload/boarding_institute/<?= $s->bukti_tf ?>"
+                                width="240px">
                         </div>
                     </div>
                     <div class="modal-footer">

@@ -28,7 +28,7 @@ class Pmb_online extends CI_Controller
             'tahun' => "2024/2025",
             'kelas_program_po' => $this->app->all('kelas_program_po')->result(),
             'prog' => $this->app->get_where('tbl_program', ['slug' => $slug]),
-            'slug' => $this->app->get_where('tbl_program', ['slug' => $slug])->row_array(),
+            'slug' => $this->app->join_program_where_diskon(['slug' => $slug])->row_array(),
             'prov' =>  $this->app->get_prov('provinces'),
 
             // 'pendaftaran' => $this->app->get_daftar()->result()
@@ -93,6 +93,7 @@ class Pmb_online extends CI_Controller
 
         //data
         $prog = $this->input->post('prog');
+        $prog_id = $this->input->post('prog_id');
         $kelas = $this->input->post('kelas');
         $juz = $this->input->post('juz');
         $nama = $this->input->post('nama');
@@ -102,6 +103,7 @@ class Pmb_online extends CI_Controller
         $asal = $this->input->post('asal');
         $kerja = $this->input->post('kerja');
         $pendidikan = $this->input->post('pendidikan');
+        $diskon = $this->input->post('diskon');
 
         //foto
         if (!empty($_FILES['foto']['name'])) {
@@ -123,18 +125,12 @@ class Pmb_online extends CI_Controller
             $upload5 = $this->upload->data();
             $bukti_tf = $upload5["file_name"];
         } else {
-            $bukti_tf = $this->input->post('bayar');
-        }
-
-        //status
-        if ($bukti_tf == 'promo') {
-            $status = '1';
-        } else {
-            $status = '0';
+            $bukti_tf = $diskon;
         }
 
         $data['temp'] = [
             'prog' => $prog,
+            'prog_id' => $prog_id,
             'kelas' => $kelas,
             'juz' => $juz,
             'nama' => $nama,
@@ -148,7 +144,7 @@ class Pmb_online extends CI_Controller
             'tes' => $tes,
             'bukti_tf' => $bukti_tf,
             'created_at' => $harivar,
-            'status' => $status,
+            'diskon' => $diskon,
             'notif' => '0'
         ];
         $this->app->insert('tbl_pmb_po', $data['temp']);
@@ -206,7 +202,7 @@ class Pmb_online extends CI_Controller
         $hasil_wali = $this->input->post('hasil_wali');
         $wa_wali = $this->input->post('wa_wali');
         $tau_drmana = $this->input->post('tau_drmana');
-
+        $diskon = $this->input->post('diskon');
 
         //foto 
         if (!empty($_FILES['foto']['name'])) {
@@ -256,7 +252,7 @@ class Pmb_online extends CI_Controller
             $upload6 = $this->upload->data();
             $bukti_tf = $upload6["file_name"];
         } else {
-            $bukti_tf = $this->input->post('bayar');
+            $bukti_tf = $diskon;
         }
 
         //raport
@@ -271,13 +267,6 @@ class Pmb_online extends CI_Controller
             $this->upload->do_upload('mutasi');
             $upload8 = $this->upload->data();
             $mutasi = $upload8["file_name"];
-        }
-
-        //status
-        if ($bukti_tf == 'promo') {
-            $status = '1';
-        } else {
-            $status = '0';
         }
 
         $data['temp'] = [
@@ -329,7 +318,7 @@ class Pmb_online extends CI_Controller
             'bukti_tf' => $bukti_tf,
             'created_at' => $harivar,
             'notif' => '0',
-            'status' => $status
+            'diskon' => $diskon
         ];
 
         $this->app->insert('tbl_pmb_boarding', $data['temp']);
@@ -351,6 +340,7 @@ class Pmb_online extends CI_Controller
 
         //data
         $prog = $this->input->post('prog');
+        $prog_id = $this->input->post('prog_id');
         $jalur = $this->input->post('jalur');
         $sistem = $this->input->post('sistem');
         $prodi = $this->input->post('prodi');
@@ -395,7 +385,7 @@ class Pmb_online extends CI_Controller
         $hasil_wali = $this->input->post('hasil_wali');
         $wa_wali = $this->input->post('wa_wali');
         $tau_drmana = $this->input->post('tau_drmana');
-
+        $diskon = $this->input->post('diskon');
 
         //foto 
         if (!empty($_FILES['foto']['name'])) {
@@ -438,18 +428,12 @@ class Pmb_online extends CI_Controller
             $upload6 = $this->upload->data();
             $bukti_tf = $upload6["file_name"];
         } else {
-            $bukti_tf = $this->input->post('bayar');
-        }
-
-        //status
-        if ($bukti_tf == 'promo') {
-            $status = '1';
-        } else {
-            $status = '0';
+            $bukti_tf = $diskon;
         }
 
         $data['temp'] = [
             'prog' => $prog,
+            'prog_id' => $prog_id,
             'jalur' => $jalur,
             'sistem' => $sistem,
             'prodi' => $prodi,
@@ -501,7 +485,7 @@ class Pmb_online extends CI_Controller
             'bukti_tf' => $bukti_tf,
             'created_at' => $harivar,
             'notif' => '0',
-            'status' => $status
+            'diskon' => $diskon
         ];
 
         $this->app->insert('tbl_pmb_institute', $data['temp']);
@@ -523,6 +507,7 @@ class Pmb_online extends CI_Controller
 
         //data
         $prog = $this->input->post('prog');
+        $prog_id = $this->input->post('prog_id');
         $kelas = $this->input->post('kelas');
         $waktu = $this->input->post('waktu');
         $juz = $this->input->post('juz');
@@ -545,6 +530,7 @@ class Pmb_online extends CI_Controller
         $kdpos = $this->input->post('kdpos');
         $pendidikan = $this->input->post('pendidikan');
         $asalsklh = $this->input->post('asalsklh');
+        $diskon = $this->input->post('diskon');
 
         //foto
         if (!empty($_FILES['foto']['name'])) {
@@ -580,18 +566,12 @@ class Pmb_online extends CI_Controller
             $upload5 = $this->upload->data();
             $bukti_tf = $upload5["file_name"];
         } else {
-            $bukti_tf = $this->input->post('bayar');
-        }
-
-        //status
-        if ($bukti_tf == 'promo') {
-            $status = '1';
-        } else {
-            $status = '0';
+            $bukti_tf = $diskon;
         }
 
         $data['temp'] = [
             'prog' => $prog,
+            'prog_id' => $prog_id,
             'kelas' => $kelas,
             'waktu' => $waktu,
             'juz' => $juz,
@@ -620,7 +600,7 @@ class Pmb_online extends CI_Controller
             'tes' => $tes,
             'bukti_tf' => $bukti_tf,
             'created_at' => $harivar,
-            'status' => $status,
+            'diskon' => $diskon,
             'notif' => '0'
         ];
 

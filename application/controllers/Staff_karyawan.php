@@ -4,114 +4,135 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Staff_karyawan extends CI_Controller
 {
     public function __construct()
-	{
-		parent::__construct();
-		if (!$this->session->userdata('username')) {
-			redirect('auth');
-		}
-		ini_set('display_errors', 1);
-		ini_set('display_startup_errors', 1);
-		error_reporting(E_ALL);
-		// $this->load->library('encryption');
-		$this->load->model('app');
-	}
-    
-    public function index(){
-        $title =[
-            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"]; 
-        $this->load->view('staff/v_header' ,$title);
+    {
+        parent::__construct();
+        if (!$this->session->userdata('username')) {
+            redirect('auth');
+        }
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+        // $this->load->library('encryption');
+        $this->load->model('app');
+    }
+
+    public function index()
+    {
+        $title = [
+            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"
+        ];
+        $this->load->view('staff/v_header', $title);
         $this->load->view('staff/v_nav');
         $this->load->view('staff/v_dashboard');
         $this->load->view('staff/v_footer');
     }
-    
-    public function data_pmb_online(){
+
+    public function data_pmb_online()
+    {
         $data["pmb"] = $this->app->pmb_karantina()->result();
-        $title =[
-            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"]; 
-        $this->load->view('staff/v_header',$title);
+        $title = [
+            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"
+        ];
+        $this->load->view('staff/v_header', $title);
         $this->load->view('staff/v_nav');
-        $this->load->view('staff/v_pmb' ,$data);
+        $this->load->view('staff/v_pmb', $data);
         $this->load->view('staff/v_footer');
     }
-    
-    public function flayer(){
+
+    public function flayer()
+    {
         $data["flayer"] = $this->app->get_all('tbl_flayer')->result();
-        $title =[
-            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"]; 
-        $this->load->view('staff/v_header',$title);
+        $title = [
+            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"
+        ];
+        $this->load->view('staff/v_header', $title);
         $this->load->view('staff/v_nav');
-        $this->load->view('staff/v_flayer' ,$data);
+        $this->load->view('staff/v_flayer', $data);
         $this->load->view('staff/v_footer');
     }
-    
-    public function tambah_flayer(){
+
+    public function tambah_flayer()
+    {
         $config['upload_path'] = './assets/backend/upload/flayer'; //path folder
-        $config['allowed_types'] = 'png|jpg|jpeg'; 
+        $config['allowed_types'] = 'png|jpg|jpeg';
         $config['encrypt_name'] = FALSE;
         $config['max-width'] = '929';
         $config['max-height'] = '929';
         $config['max-size'] = '100';
-        
+
         $this->upload->initialize($config);
-        
-        $judul =$this->input->post('judul');
-        
-     if (!empty($_FILES['gbr']['name'])) {
-        $this->upload->do_upload('gbr');
-        $upload = $this->upload->data();
-        $gbr = $upload["file_name"];
-        $data = [
-            'judul'=> $judul,
-            'gbr'=> $gbr
-        ];
-        
-        $this->app->insert('tbl_flayer',$data);
-        $this->session->set_flashdata('sukses','ditambah');
-        redirect('staff_karyawan/flayer');
+
+        $judul = $this->input->post('judul');
+
+        if (!empty($_FILES['gbr']['name'])) {
+            $this->upload->do_upload('gbr');
+            $upload = $this->upload->data();
+            $gbr = $upload["file_name"];
+            $data = [
+                'judul' => $judul,
+                'gbr' => $gbr
+            ];
+
+            $this->app->insert('tbl_flayer', $data);
+            $this->session->set_flashdata('sukses', 'ditambah');
+            redirect('staff_karyawan/flayer');
         }
     }
-    
+
     public function hapus_flayer($id)
-	{
-		$data = $this->app->get_where('tbl_flayer',['id'=> $id])->row();
+    {
+        $data = $this->app->get_where('tbl_flayer', ['id' => $id])->row();
 
-		$path1 = './assets/backend/upload/flayer/' . $data->gbr;
-		unlink($path1);
+        $path1 = './assets/backend/upload/flayer/' . $data->gbr;
+        unlink($path1);
 
-		$this->app->delete('tbl_flayer', ['id' => $id]);
-	}
-    
-    public function diskon_pendaftaran(){
-        $title =[
-            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"]; 
-        $data = [
-            'prog'=> $this->app->all('tbl_program')->result()
+        $this->app->delete('tbl_flayer', ['id' => $id]);
+    }
+
+    public function diskon_pendaftaran()
+    {
+        $title = [
+            'title' => "Pesantren Tahfidz Daarul Huffadz Indonesia"
         ];
-        $this->load->view('staff/v_header',$title);
+        $data = [
+            'prog' => $this->app->join_program_diskon()->result(),
+        ];
+
+        $this->load->view('staff/v_header', $title);
         $this->load->view('staff/v_nav');
-        $this->load->view('staff/v_diskon',$data);
+        $this->load->view('staff/v_diskon', $data);
         $this->load->view('staff/v_footer');
     }
-    
-    public function set_diskon_pendaftaran($id){
-        
+
+    public function set_diskon_pendaftaran($id)
+    {
+
         $data = [
-            'diskon'=> '1'
+            'program_id' => $id,
+            'title' => $this->input->post('title'),
+            'ket' => $this->input->post('ket'),
         ];
-        $this->app->update('tbl_program',$data,['id'=>$id]);
+
+        if ($data['title'] == 'Diskon Pendaftaran') {
+            $diskon = '1';
+        } else {
+            $diskon = '2';
+        }
+
+        $this->app->update('tbl_program', ['diskon' => $diskon], ['id' => $id]);
+        $this->app->insert('tbl_diskon', $data);
+
         redirect('staff_karyawan/diskon_pendaftaran/');
     }
-    
-    public function unset_diskon_pendaftaran($id){
-        
-        $data = [
-            'diskon'=> '0'
-        ];
-        $this->app->update('tbl_program',$data,['id'=>$id]);
+
+    public function unset_diskon_pendaftaran($id)
+    {
+
+        $this->app->delete('tbl_diskon', ['program_id' => $id]);
+        $this->app->update('tbl_program', ['diskon' => '0'], ['id' => $id]);
         redirect('staff_karyawan/diskon_pendaftaran/');
     }
-    
+
     public function dhi_news()
     {
         $title = [
@@ -184,8 +205,8 @@ class Staff_karyawan extends CI_Controller
             redirect('staff_karyawan/dhi_news');
         }
     }
-    
-        public function ck_upload()
+
+    public function ck_upload()
     {
         if (isset($_FILES['upload']['tmp_name'])) {
             $file = $_FILES['upload']['tmp_name'];
@@ -205,8 +226,8 @@ class Staff_karyawan extends CI_Controller
             }
         }
     }
-    
-     public function delete_news($id)
+
+    public function delete_news($id)
     {
         $data = $this->app->get_where('tbl_news', ['id_news' => $id])->row();
 
@@ -216,6 +237,4 @@ class Staff_karyawan extends CI_Controller
         $this->app->delete('tbl_news', ['id_news' => $id]);
         redirect('staff_karyawan/dhi_news');
     }
-    
-    
 }
