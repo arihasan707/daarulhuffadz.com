@@ -323,7 +323,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -357,7 +357,7 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -751,7 +751,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -785,7 +785,7 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -1396,7 +1396,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -1430,7 +1430,7 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -1721,7 +1721,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -1755,7 +1755,7 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -2177,7 +2177,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -2211,7 +2211,7 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -2893,7 +2893,7 @@
                                 </div>
 
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
@@ -2929,7 +2929,7 @@
                                 </div>
                             <?php } else { ?>
 
-                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                <div class="col-12">
                                     <div class="card-disc">
                                         <div class="main">
                                             <div class="content text-center">
