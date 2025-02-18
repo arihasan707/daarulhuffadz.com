@@ -149,7 +149,7 @@ class Pmb_online extends CI_Controller
         ];
         $this->app->insert('tbl_pmb_po', $data['temp']);
         $this->session->set_tempdata($data, NULL, 300);
-        redirect('pmb_online/pendaftaran_sukses/');
+        redirect('pmb_online/pendaftaran_sukses');
     }
 
     public function proses_pendaftaran2()
@@ -165,7 +165,7 @@ class Pmb_online extends CI_Controller
         $this->upload->initialize($config);
 
         //data
-        $prog = $this->input->post('prog');
+        $prog_id = $this->input->post('prog_id');
         $nama = $this->input->post('nama');
         $jkl = $this->input->post('jkl');
         $tmpt_lahir = $this->input->post('tmpt_lahir');
@@ -270,7 +270,7 @@ class Pmb_online extends CI_Controller
         }
 
         $data['temp'] = [
-            'prog' => $prog,
+            'prog_id' => $prog_id,
             'nama' => $nama,
             'jkl' => $jkl,
             'tmpt_lahir' => $tmpt_lahir,
@@ -323,7 +323,7 @@ class Pmb_online extends CI_Controller
 
         $this->app->insert('tbl_pmb_boarding', $data['temp']);
         $this->session->set_tempdata($data, NULL, 300);
-        redirect('pmb_online/pendaftaran_sukses/');
+        redirect('pmb_online/pendaftaran_sukses');
     }
 
     public function proses_pendaftaran2_1()
@@ -490,7 +490,7 @@ class Pmb_online extends CI_Controller
 
         $this->app->insert('tbl_pmb_institute', $data['temp']);
         $this->session->set_tempdata($data, NULL, 300);
-        redirect('pmb_online/pendaftaran_sukses/');
+        redirect('pmb_online/pendaftaran_sukses');
     }
 
     public function proses_pendaftaran()
@@ -606,7 +606,7 @@ class Pmb_online extends CI_Controller
 
         $this->app->insert('tbl_pmb_karantina', $data['temp']);
         $this->session->set_tempdata($data, NULL, 300);
-        redirect('pmb_online/pendaftaran_sukses/');
+        redirect('pmb_online/pendaftaran_sukses');
     }
 
     public function download_biaya()
@@ -644,6 +644,8 @@ class Pmb_online extends CI_Controller
         $tempdata = $this->session->tempdata('temp');
         if (!empty($tempdata)) {
             $tempdata['tempdata'] = $this->session->tempdata('temp');
+            // var_dump($tempdata['tempdata']);
+            // die;
             $maps_footer['maps'] = $this->app->all('tbl_cabang')->result();
             $this->load->view('template/v_header', $title);
             $this->load->view('program/v_sukses', $tempdata);

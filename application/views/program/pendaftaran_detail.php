@@ -871,7 +871,7 @@
                                             <div class="mb-3">
                                                 <label for="exampleFormControlInput1" class="form-label">Program
                                                     Boarding School <span class="merah">*</span></label>
-                                                <select class="form-select" name="prog" id="prog"
+                                                <select class="form-select" name="prog_id" id="prog"
                                                     aria-label="Default select example">
                                                     <option value="">-- Pilih Program Boarding School --</option>
                                                     <option value="1">SMP Tahfidz Boarding School</option>

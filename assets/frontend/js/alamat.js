@@ -3,7 +3,8 @@ $(document).ready(function () {
 	kecAjax();
 });
 
-const base_url = "https://daarulhuffadz.com";
+// const base_url = "https://daarulhuffadz.com";
+const base_url = "http://localhost/daarulhuffadz.com";
 
 function kabAjax() {
 	$("#prov").change(function () {

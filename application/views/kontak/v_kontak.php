@@ -28,16 +28,16 @@
                             <div class="tp-contact-info-text">
                                 <h4 class="tp-contact-info-title mb-3">Hubungi Kami</h4>
                                 <a href="https://api.whatsapp.com/send?phone=6282133558441" class="admin_kontak">
-                                                Admin Pusat - 0821 3355 8441
+                                    Admin Pusat - 0821 3355 8441
                                 </a>
-                                <a href="https://api.whatsapp.com/send?phone=62882221115979" class="admin_kontak mt-2">
-                                                Admin Boarding - 0822 2111 5979
+                                <a href="https://api.whatsapp.com/send?phone=6282221115979" class="admin_kontak mt-2">
+                                    Admin Boarding - 0822 2111 5979
                                 </a>
                                 <a href="https://api.whatsapp.com/send?phone=6282122022948" class="admin_kontak mt-2">
-                                                Admin DH Institute - 0821 2202 2948  
+                                    Admin DH Institute - 0821 2202 2948
                                 </a>
                                 <a href="https://api.whatsapp.com/send?phone=6281399251460" class="admin_kontak mt-2">
-                                                Admin Program Online - 0813 9925 1460  
+                                    Admin Program Online - 0813 9925 1460
                                 </a>
                             </div>
                         </div>
