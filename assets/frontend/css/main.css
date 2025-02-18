@@ -8646,29 +8646,6 @@ nav ul li a {
 	padding: 0 10px;
 	align-items: center;
 }
-.card-disc::after {
-	position: absolute;
-	content: "";
-	height: 40px;
-	right: -25px;
-	border-radius: 40px;
-	z-index: 1;
-	top: 35px;
-	background-color: #ebebeb;
-	width: 40px;
-}
-
-.card-disc::before {
-	position: absolute;
-	content: "";
-	height: 40px;
-	left: -25px;
-	border-radius: 40px;
-	z-index: 1;
-	top: 35px;
-	background-color: #ebebeb;
-	width: 40px;
-}
 
 .co-img img {
 	width: 120px;
