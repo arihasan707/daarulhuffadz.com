@@ -30,10 +30,10 @@
                 <tbody>
                     <?php $no = 1;
                     foreach ($pmb as $s) : ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= date('d M Y', strtotime($s->created_at))  ?></td>
-                        <?php
+                        <tr>
+                            <td><?= $no++ ?></td>
+                            <td><?= date('d M Y', strtotime($s->created_at))  ?></td>
+                            <?php
                             switch ($s->prog_id) {
                                 case 1:
                                     echo "<td class='bold'>SMP Tahfidz Boarding</td>";
@@ -43,18 +43,18 @@
                                     break;
                             }
                             ?>
-                        <td><?= $s->nama ?></td>
-                        <td>
-                            <?php
+                            <td><?= $s->nama ?></td>
+                            <td>
+                                <?php
                                 if ($s->status == '0') {
                                     echo "<span class='badge rounded-pill bg-warning text-dark'>CHECK </span>";
                                 } else {
                                     echo "<span class='badge rounded-pill bg-success'>OK </span>";
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 switch ($s->diskon) {
                                     case '1':
                                         echo "<span class='badge rounded-pill bg-danger'>Diskon Pendaftaran</span>";
@@ -67,9 +67,9 @@
                                         break;
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <?php
+                            </td>
+                            <td>
+                                <?php
                                 switch ($s->bukti_tf) {
                                     case '2':
                                         echo "<a data-bs-toggle='modal' data-bs-target='#bukti_tf" . $s->id_pmb . "'
@@ -84,10 +84,10 @@
                                         break;
                                 }
                                 ?>
-                        </td>
-                        <td>
-                            <div class="d-flex justify-content-center gap-1">
-                                <?php
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-1">
+                                    <?php
                                     if ($s->status == '0') {
                                         echo "<a data-bs-toggle='modal' data-bs-target='#konfirm$s->id_pmb' href='#'
                                         class='btn btn-secondary btn-sm'>Konfirm</a>";
@@ -96,12 +96,12 @@
                                     class='btn btn-primary btn-sm'><i class='bx bx-detail'></i></a>";
                                         echo " <a target='blank' href='https://api.whatsapp.com/send?phone='62' " . $s->wa . " 
                                     class='btn btn-success btn-sm'><i class='bi bi-whatsapp'></i></a>";
-                                        echo "<a id='hapus_institute' data-id='$s->id_pmb' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
+                                        echo "<a id='hapus_boarding' data-id='$s->id_pmb' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
                                     }
                                     ?>
-                            </div>
-                        </td>
-                    </tr>
+                                </div>
+                            </td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
@@ -110,21 +110,21 @@
 
 
     <?php foreach ($pmb as $s) { ?>
-    <!-- Konfirmasi -->
-    <div class="modal fade" id="konfirm<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header head">
-                    <h5 class="modal-title bold" id="exampleModalLabel">Yakin ingin konfirmasi data berikut :
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <form action="<?php echo base_url('admin_dua/konfirmasi_boarding/' . $s->id_pmb) ?>">
-                        <div class=" mb-2">
-                            <label for="exampleFormControlInput1" class="form-label bold">Pilihan
-                                Program :</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php switch ($s->prog_id) {
+        <!-- Konfirmasi -->
+        <div class="modal fade" id="konfirm<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header head">
+                        <h5 class="modal-title bold" id="exampleModalLabel">Yakin ingin konfirmasi data berikut :
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?php echo base_url('admin_dua/konfirmasi_boarding/' . $s->id_pmb) ?>">
+                            <div class=" mb-2">
+                                <label for="exampleFormControlInput1" class="form-label bold">Pilihan
+                                    Program :</label>
+                                <input type="text" class="form-control" id="exampleFormControlInput1" value="<?php switch ($s->prog_id) {
                                                                                                                     case '1':
                                                                                                                         echo "SMP Tahfidz Boarding";
                                                                                                                         break;
@@ -132,48 +132,48 @@
                                                                                                                         echo "SMA Tahfidz Boarding";
                                                                                                                         break;
                                                                                                                 } ?>"
-                                disabled>
-                        </div>
-                        <div class="mb-2">
-                            <label for="exampleFormControlInput1" class="form-label bold">Nama Lengkap
-                                :</label>
-                            <input type="text" value="<?= $s->nama ?>" class="form-control"
-                                id="exampleFormControlInput1" disabled>
-                        </div>
-                        <div class="form-text">
-                            <b><i> Keterangan: <i></b><br>Sebelum konfirmasi, silahkan cek bukti transfer terlebih
-                            dahulu
-                        </div>
+                                    disabled>
+                            </div>
+                            <div class="mb-2">
+                                <label for="exampleFormControlInput1" class="form-label bold">Nama Lengkap
+                                    :</label>
+                                <input type="text" value="<?= $s->nama ?>" class="form-control"
+                                    id="exampleFormControlInput1" disabled>
+                            </div>
+                            <div class="form-text">
+                                <b><i> Keterangan: <i></b><br>Sebelum konfirmasi, silahkan cek bukti transfer terlebih
+                                dahulu
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kembali</button>
+                        <button type="submit" class="btn btn-danger btn-sm bold">Ya Konfirmasi!</button>
+                    </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kembali</button>
-                    <button type="submit" class="btn btn-danger btn-sm bold">Ya Konfirmasi!</button>
-                </div>
-                </form>
             </div>
         </div>
-    </div>
 
-    <!-- Bukti TF -->
-    <div class="modal fade" id="bukti_tf<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header head">
-                    <h1 class="modal-title fs-5 bold" id="exampleModalLabel">Pastikan bukti transfer sudah benar</h1>
-                </div>
-                <div class="modal-body">
-                    <div class="d-flex justify-content-center">
-                        <img src="<?= base_url() ?>assets/backend/upload/boarding_institute/<?= $s->bukti_tf ?>"
-                            width="240px">
+        <!-- Bukti TF -->
+        <div class="modal fade" id="bukti_tf<?= $s->id_pmb; ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header head">
+                        <h1 class="modal-title fs-5 bold" id="exampleModalLabel">Pastikan bukti transfer sudah benar</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex justify-content-center">
+                            <img src="<?= base_url() ?>assets/backend/upload/boarding_institute/<?= $s->bukti_tf ?>"
+                                width="240px">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kembali</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Kembali</button>
-                </div>
             </div>
         </div>
-    </div>
 
     <?php } ?>
 

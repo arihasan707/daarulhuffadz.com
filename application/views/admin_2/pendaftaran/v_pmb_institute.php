@@ -111,7 +111,7 @@
                                     class='btn btn-primary btn-sm'><i class='bx bx-detail'></i></a>";
                                         echo " <a target='blank' href='https://api.whatsapp.com/send?phone='62' " . $s->wa . " 
                                     class='btn btn-success btn-sm'><i class='bi bi-whatsapp'></i></a>";
-                                        echo "<a id='hapus_boarding' data-id='$s->id_pmb' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
+                                        echo "<a id='hapus_institute' data-id='$s->id_pmb' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></a>";
                                     }
                                     ?>
                                 </div>
