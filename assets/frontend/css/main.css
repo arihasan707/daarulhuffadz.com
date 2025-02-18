@@ -8650,7 +8650,7 @@ nav ul li a {
 	position: absolute;
 	content: "";
 	height: 40px;
-	right: -17px;
+	right: -25px;
 	border-radius: 40px;
 	z-index: 1;
 	top: 35px;
@@ -8662,7 +8662,7 @@ nav ul li a {
 	position: absolute;
 	content: "";
 	height: 40px;
-	left: -17px;
+	left: -25px;
 	border-radius: 40px;
 	z-index: 1;
 	top: 35px;
