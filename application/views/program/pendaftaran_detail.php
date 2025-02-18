@@ -302,19 +302,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -334,6 +322,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -355,15 +357,14 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
@@ -729,19 +730,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -761,6 +750,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -782,15 +785,14 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
@@ -1373,19 +1375,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -1405,6 +1395,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -1426,15 +1430,14 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
@@ -1697,19 +1700,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -1729,6 +1720,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -1750,15 +1755,14 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
@@ -2152,19 +2156,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -2184,6 +2176,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -2205,15 +2211,14 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
@@ -2866,19 +2871,7 @@
                                 </div>
                             </div>
                             <?php if ($slug['diskon'] == '2') { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
                                 </div>
@@ -2898,6 +2891,22 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             <?php } else if ($slug['diskon'] == '0') { ?>
                                 <div class="card-title">
                                     <h5>Biaya Pendaftaran</h5>
@@ -2919,20 +2928,21 @@
                                     </div>
                                 </div>
                             <?php } else { ?>
-                                <div class="card-diskon">
-                                    <h5><?= $slug['title'] ?></h5>
-                                </div>
-                                <div class="card">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12">
-                                            <div class="mb-3 gratis">
-                                                <h5><span class="badge rounded-pill bg-danger"><?= $slug['ket'] ?></span>
-                                                </h5>
+
+                                <div class="col-md-8 col-lg-6 col-xl-4 col-xxl-4">
+                                    <div class="card-disc">
+                                        <div class="main">
+                                            <div class="content text-center">
+                                                <h2><?= $slug['title'] ?></h2>
+                                                <!-- <h1><?= $slug['ket'] ?></h1> -->
+                                                <h1><?= $slug['ket'] ?><span></span></h1>
+                                                <p>Syarat & Ketentuan Berlaku</p>
                                                 <input type="hidden" name="diskon" value="<?= $slug['diskon'] ?>">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             <?php } ?>
                             <div class="card ket">
                                 <div class="row">
