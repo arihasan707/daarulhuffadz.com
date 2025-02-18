@@ -85,7 +85,7 @@ class Pmb_online extends CI_Controller
         $harivar = date("Y-m-d h:i:s");
 
         $config['upload_path'] = './assets/backend/upload/po'; //path folder
-        $config['allowed_types'] = 'png|jpg|jpeg|mp3|wav|aac';
+        $config['allowed_types'] = 'png|jpg|jpeg|PNG|JPG|JPEG|mp3|wav|aac';
         $config['encrypt_name'] = FALSE;
 
 
@@ -158,7 +158,7 @@ class Pmb_online extends CI_Controller
         $harivar = date("Y-m-d h:i:s");
 
         $config['upload_path'] = './assets/backend/upload/boarding_institute'; //path folder
-        $config['allowed_types'] = 'png|jpg|jpeg|mp3|wav|aac';
+        $config['allowed_types'] = 'png|jpg|jpeg|PNG|JPG|JPEG|mp3|wav|aac';
         $config['encrypt_name'] = FALSE;
 
 
@@ -332,7 +332,7 @@ class Pmb_online extends CI_Controller
         $harivar = date("Y-m-d h:i:s");
 
         $config['upload_path'] = './assets/backend/upload/boarding_institute'; //path folder
-        $config['allowed_types'] = 'png|jpg|jpeg|mp3|wav|aac';
+        $config['allowed_types'] = 'png|jpg|jpeg|PNG|JPG|JPEG|mp3|wav|aac';
         $config['encrypt_name'] = FALSE;
 
 
@@ -499,7 +499,7 @@ class Pmb_online extends CI_Controller
         $harivar = date("Y-m-d h:i:s");
 
         $config['upload_path'] = './assets/backend/upload/karantina_dauroh'; //path folder
-        $config['allowed_types'] = 'png|jpg|jpeg|mp3|wav|aac';
+        $config['allowed_types'] = 'png|jpg|jpeg|PNG|JPG|JPEG|mp3|wav|aac';
         $config['encrypt_name'] = FALSE;
 
 
