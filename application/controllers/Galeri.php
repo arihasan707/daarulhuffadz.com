@@ -25,24 +25,42 @@ class Galeri extends CI_Controller
         $this->load->view('template/v_footer', $maps_footer);
     }
 
-    public function aktivitas($slug)
+    public function aktivitas($slug, $param = null)
     {
-        $title['title'] = "Galeri - Pesantren Tahfidz Daarul Huffadz Indonesia - Mencetak Generasi Penghafal Al-Qur'an";
 
+        $title['title'] = "Galeri - Pesantren Tahfidz Daarul Huffadz Indonesia - Mencetak Generasi Penghafal Al-Qur'an";
+        $maps_footer['maps'] = $this->app->all('tbl_cabang')->result();
         $nama_galeri = str_replace('-', ' ', $slug);
 
-        $foto = $this->app->get_where('tbl_galeri', ['nama' => $nama_galeri])->row();
+        if ($param) {
+            $nama_folder = str_replace('-', ' ', $param);
+            $folder = $this->app->get_where('tbl_folder_galeri', ['nama' => $nama_folder])->row();
+            $fotos = $this->app->multi_where('tbl_foto_galeri', ['galeri_id' => $folder->galeri_id], ['folder_galeri_id' => $folder->id_folder_galeri])->result();
 
-        $data = [
-            'breadcrumb' => $foto->nama,
-            'fotos' => $this->app->get_where('tbl_foto_galeri', ['galeri_id' => $foto->id])->result()
-        ];
+            $data = [
+                'galeri' => $folder,
+                'folder' => $folder,
+                'fotos' => $fotos
+            ];
 
-        $maps_footer['maps'] = $this->app->all('tbl_cabang')->result();
+            $this->load->view('template/v_header', $title);
+            $this->load->view('v_nav');
+            $this->load->view('galeri/v_folder_foto', $data);
+            $this->load->view('template/v_footer', $maps_footer);
+        } else {
 
-        $this->load->view('template/v_header', $title);
-        $this->load->view('v_nav');
-        $this->load->view('galeri/v_foto', $data);
-        $this->load->view('template/v_footer', $maps_footer);
+            $galeri = $this->app->get_where('tbl_galeri', ['nama' => $nama_galeri])->row();
+            $fotos = $this->app->get_where('tbl_foto_galeri', ['galeri_id' => $galeri->id])->result();
+            $folder = $this->app->get_where('tbl_folder_galeri', ['galeri_id' => $galeri->id])->result();
+            $data = [
+                'galeri' => $galeri,
+                'folder' => $folder,
+                'fotos' => $fotos
+            ];
+            $this->load->view('template/v_header', $title);
+            $this->load->view('v_nav');
+            $this->load->view('galeri/v_foto', $data);
+            $this->load->view('template/v_footer', $maps_footer);
+        }
     }
 }
