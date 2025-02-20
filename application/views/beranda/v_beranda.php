@@ -180,7 +180,7 @@
                     <div class="avideo-btn-4">
                         <div class="tp-slider-video-btn play_btn">
                             <a class="venobox" data-autoplay="true" data-vbtype="video"
-                                href="https://youtu.be/E2bHLpjyFSg"><i class="fas fa-play"></i></a>
+                                href="https://www.youtube.com/watch?v=n88cSqrdu-I"><i class="fas fa-play"></i></a>
                         </div>
                     </div>
                 </div>
@@ -463,6 +463,7 @@
         </div>
     </div>
 </section>
+
 
 
 <!-- faq area start here -->
