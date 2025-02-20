@@ -28,6 +28,26 @@
             <?php }; ?>
         </div>
 
+        <?php if ($foto->id_folder_galeri) { ?>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tambah Foto Baru</h5>
+                <form
+                    action="<?= base_url('administrator/proses_tambah_foto_galeri/' . $foto->id_folder_galeri . '/' . $foto->galeri_id) ?>"
+                    method="POST" enctype="multipart/form-data" class="row g-3">
+                    <div class="col-12">
+                        <label for="foto" class="form-label">Upload Foto</label>
+                        <input type="file" name="foto" class="form-control" id="foto" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-sm btn-primary">Tambah</button>
+                        <button type="reset" class="btn btn-sm btn-danger">Reset</button>
+                        <a href="<?= base_url('administrator/galeri') ?>" class="btn btn-sm btn-secondary">Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <?php } else { ?>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Tambah Foto Baru</h5>
@@ -43,9 +63,11 @@
                         <a href="<?= base_url('administrator/galeri') ?>" class="btn btn-sm btn-secondary">Back</a>
                     </div>
                 </form>
-
             </div>
         </div>
+        <?php } ?>
+
+
 
         <div class="col-lg-12">
             <div class="card">

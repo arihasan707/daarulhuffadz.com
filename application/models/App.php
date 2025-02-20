@@ -21,7 +21,7 @@ class App extends CI_Model
 
     function lists()
     {
-        $this->db->select('tbl_galeri.*,count(tbl_foto_galeri.galeri_id) as jml_foto');
+        $this->db->select('tbl_galeri.*');
         $this->db->from('tbl_galeri');
         $this->db->join('tbl_foto_galeri', 'tbl_foto_galeri.galeri_id = tbl_galeri.id', 'left');
         $this->db->group_by('tbl_galeri.id');
@@ -248,6 +248,14 @@ class App extends CI_Model
     }
 
     function get_login($table, $where, $where1)
+    {
+        $this->db->from($table);
+        $this->db->where($where);
+        $this->db->where($where1);
+        return $this->db->get();
+    }
+
+    function multi_where($table, $where, $where1)
     {
         $this->db->from($table);
         $this->db->where($where);

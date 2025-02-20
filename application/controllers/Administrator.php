@@ -17,33 +17,35 @@ class Administrator extends CI_Controller
 		$title =  [
 			'title' => "Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia",
 		];
-		$this->load->view('admin/v_header' , $title);
+		$this->load->view('admin/v_header', $title);
 		$this->load->view('admin/v_nav', $title);
 		$this->load->view('admin/dashboard/v_dashboard');
 		$this->load->view('admin/v_footer');
 	}
-	
-	public function kontak(){
+
+	public function kontak()
+	{
 		$title =  [
 			'title' => "Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia",
 		];
 		$data = [
-		 'kontak'=> $this->app->all('tbl_kontak_suport'),
-		 'main_title' => 'Daftar Kontak',
-		 'sub_title' => 'Daftar Kontak'
+			'kontak' => $this->app->all('tbl_kontak_suport'),
+			'main_title' => 'Daftar Kontak',
+			'sub_title' => 'Daftar Kontak'
 		];
-		$this->load->view('admin/v_header' , $title);
+		$this->load->view('admin/v_header', $title);
 		$this->load->view('admin/v_nav', $title);
-		$this->load->view('admin/kontak/v_kontak',$data);
+		$this->load->view('admin/kontak/v_kontak', $data);
 		$this->load->view('admin/v_footer');
 	}
-	
-	public function hapus_kontak($id){
-	$this->app->delete('tbl_kontak_suport',['id'=>$id] );
-	$this->session->set_flashdata('sukses','data kontak telah di hapus');
-	redirect('administrator/kontak');
+
+	public function hapus_kontak($id)
+	{
+		$this->app->delete('tbl_kontak_suport', ['id' => $id]);
+		$this->session->set_flashdata('sukses', 'data kontak telah di hapus');
+		redirect('administrator/kontak');
 	}
-	
+
 	public function akses_login()
 	{
 		$data1 = [
@@ -51,20 +53,22 @@ class Administrator extends CI_Controller
 			'main_title' => 'Akses Login',
 			'sub_title' => 'Akses Login'
 		];
-		$data['admin']= $this->app->get_all('tbl_admin');
+		$data['admin'] = $this->app->get_all('tbl_admin');
 		$this->load->view('admin/v_header', $data1);
 		$this->load->view('admin/v_nav');
 		$this->load->view('admin/akses_admin/v_admin', $data);
 		$this->load->view('admin/v_footer');
 	}
-	
-	public function hapus_akses($id){
-		$this->app->delete('tbl_admin', ['id'=>$id]);
-		$this->session->set_flashdata('sukses_hapus' , 'akses login telah di hapus');
+
+	public function hapus_akses($id)
+	{
+		$this->app->delete('tbl_admin', ['id' => $id]);
+		$this->session->set_flashdata('sukses_hapus', 'akses login telah di hapus');
 		redirect('administrator/akses_login');
 	}
-	
-	public function tambah_akses(){
+
+	public function tambah_akses()
+	{
 		$data = [
 			'nama' => $this->input->post('nama'),
 			'username' => $this->input->post('username'),
@@ -79,7 +83,7 @@ class Administrator extends CI_Controller
 
 	public function pengurus()
 	{
-		
+
 		$title =  [
 			'title' => "Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia",
 		];
@@ -94,8 +98,8 @@ class Administrator extends CI_Controller
 	public function tambah_karyawan()
 	{
 		$data = [
-		'nama' => strip_tags($this->input->post('nama')),
-		'jab' => strip_tags($this->input->post('jab')),
+			'nama' => strip_tags($this->input->post('nama')),
+			'jab' => strip_tags($this->input->post('jab')),
 		];
 		$this->app->insert('tbl_karyawan', $data);
 		$this->session->set_flashdata('success',  'Di Tambah');
@@ -164,7 +168,7 @@ class Administrator extends CI_Controller
 				$config['source_image'] = './assets/backend/upload/' . $gbr['file_name'];
 				$config['create_thumb'] = FALSE;
 				$config['maintain_ratio'] = FALSE;
-			    $config['quality'] = '83%';
+				$config['quality'] = '83%';
 				$config['width'] = 900;
 				$config['height'] = 600;
 				$config['new_image'] = './assets/backend/upload/' . $gbr['file_name'];
@@ -263,7 +267,7 @@ class Administrator extends CI_Controller
 		$this->load->view('admin/pendaftaran/v_seleksi', $data);
 		$this->load->view('admin/v_footer');
 	}
-	
+
 	public function data_pendaftaran()
 	{
 		$data["seleksi"] = $this->app->get_data_pendaftaran()->result();
@@ -275,7 +279,7 @@ class Administrator extends CI_Controller
 		$this->load->view('admin/pendaftaran/data_pendaftaran/v_data_pendaftaran', $data);
 		$this->load->view('admin/v_footer');
 	}
-	
+
 	public function detail_data($id)
 	{
 		$data["detail"] = $this->app->get_detail_seleksi($id);
@@ -335,15 +339,15 @@ class Administrator extends CI_Controller
 		$this->session->set_flashdata('success',  'Di Tambah');
 		redirect('administrator/cabang');
 	}
-	
-	public function hapus_cabang($id){
-		$this->app->delete('tbl_cabang', ['id'=> $id]);
+
+	public function hapus_cabang($id)
+	{
+		$this->app->delete('tbl_cabang', ['id' => $id]);
 		$this->session->set_flashdata('success',  'Di Hapus');
 		redirect('administrator/cabang');
-		
 	}
-	
-    public function galeri()
+
+	public function galeri()
 	{
 		$data1 = [
 			'title' => 'Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia',
@@ -407,6 +411,53 @@ class Administrator extends CI_Controller
 		}
 	}
 
+
+	public function proses_tambah_folder_galeri($id)
+	{
+		$nama_folder = $this->input->post('nama_folder');
+
+		$config['upload_path'] = './assets/backend/upload/galeri/folder/sampul/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+
+		if (!empty($_FILES['sampul']['name']))
+			if ($this->upload->do_upload('sampul')) {
+				$gbr = $this->upload->data();
+
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/backend/upload/galeri/folder/sampul/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '83%';
+				$config['width'] = 900;
+				$config['height'] = 600;
+				$config['new_image'] = './assets/backend/upload/galeri/folder/sampul/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$data = [
+					'galeri_id' => $id,
+					'nama' => $nama_folder,
+					'sampul' => $gbr['file_name'],
+				];
+
+				$this->app->insert('tbl_folder_galeri', $data);
+
+				$this->session->set_flashdata('success',  'di tambah');
+				redirect('administrator/tambah_folder_galeri/' . $id);
+			} else {
+				echo $this->session->set_flashdata('error', 'Ada Kesalahan Dalam Penginputan Data');
+				redirect('administrator/tambah_folder_galeri/' . $id);
+			}
+		else {
+			echo $this->session->set_flashdata('error', 'Ada Kesalahan Dalam Penginputan Data');
+			redirect('administrator/tambah_folder_galeri/' . $id);
+		}
+	}
+
 	public function edit_galeri($id)
 	{
 		$nama_galeri = $this->input->post('nama_galeri');
@@ -466,6 +517,61 @@ class Administrator extends CI_Controller
 		}
 	}
 
+	public function edit_folder_galeri($id, $id_galeri)
+	{
+		$nama_folder = $this->input->post('nama_folder');
+
+		$config['upload_path'] = './assets/backend/upload/galeri/folder/sampul/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+
+		if (!empty($_FILES['sampul']['name']))
+			if ($this->upload->do_upload('sampul')) {
+				$gbr = $this->upload->data();
+
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/backend/upload/galeri/folder/sampul/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '83%';
+				$config['width'] = 900;
+				$config['height'] = 600;
+				$config['new_image'] = './assets/backend/upload/galeri/folder/sampul/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$data = [
+					'nama' => $nama_folder,
+					'sampul' => $gbr['file_name'],
+				];
+
+				// hapus foto sebelumnya
+				$galeri = $this->app->get_where('tbl_folder_galeri', ['id_folder_galeri' => $id])->row();
+				$path = './assets/backend/upload/galeri/folder/sampul/' . $galeri->sampul;
+				unlink($path);
+
+				$this->app->update('tbl_folder_galeri', $data, ['id_folder_galeri' => $id]);
+				$this->session->set_flashdata('success',  'di edit');
+				redirect('administrator/tambah_folder_galeri/' . $id_galeri);
+			} else {
+				echo $this->session->set_flashdata('error', 'Ada Kesalahan Dalam Penginputan Data');
+				redirect('administrator/tambah_folder_galeri/' . $id_galeri);
+			}
+		else {
+
+			$data = [
+				'nama' => $nama_folder,
+			];
+
+			$this->app->update('tbl_folder_galeri', $data, ['id_folder_galeri' => $id]);
+			$this->session->set_flashdata('success',  'di edit');
+			redirect('administrator/tambah_folder_galeri/' . $id_galeri);
+		}
+	}
+
 	public function hapus_galeri($id)
 	{
 		$galeri = $this->app->get_where('tbl_galeri', ['id' => $id])->row();
@@ -488,7 +594,7 @@ class Administrator extends CI_Controller
 		redirect('administrator/galeri');
 	}
 
-	public function tambah_foto_galeri($id)
+	public function tambah_foto_galeri($id, $param = null)
 	{
 		$data1 = [
 			'title' => 'Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia',
@@ -496,10 +602,17 @@ class Administrator extends CI_Controller
 
 		];
 
-		$data = [
-			'fotos' => $this->app->get_where('tbl_foto_galeri', ['galeri_id' => $id])->result(),
-			'foto' => $this->app->get_where('tbl_galeri', ['id' => $id])->row()
-		];
+		if ($param) {
+			$data = [
+				'fotos' => $this->app->multi_where('tbl_foto_galeri', ['galeri_id' => $param], ['folder_galeri_id' => $id])->result(),
+				'foto' =>  $this->app->multi_where('tbl_folder_galeri', ['galeri_id' => $param], ['id_folder_galeri' => $id])->row(),
+			];
+		} else {
+			$data = [
+				'fotos' => $this->app->get_where('tbl_foto_galeri', ['galeri_id' => $id])->result(),
+				'foto' => $this->app->get_where('tbl_galeri', ['id' => $id])->row()
+			];
+		}
 
 		$this->load->view('admin/v_header', $data1);
 		$this->load->view('admin/v_nav');
@@ -507,9 +620,27 @@ class Administrator extends CI_Controller
 		$this->load->view('admin/v_footer');
 	}
 
-	public function proses_tambah_foto_galeri($id)
+	public function tambah_folder_galeri($id)
 	{
+		$data1 = [
+			'title' => 'Administrator - Pesantren Tahfidz Daarul Huffadz Indonesia',
+			'head' => 'Tambah Folder'
 
+		];
+
+		$data = [
+			'folder' => $this->app->get_where('tbl_folder_galeri', ['galeri_id' => $id])->result(),
+			'galeri' => $this->app->get_where('tbl_galeri', ['id' => $id])->row()
+		];
+
+		$this->load->view('admin/v_header', $data1);
+		$this->load->view('admin/v_nav');
+		$this->load->view('admin/galeri/v_tambah_folder_galeri', $data);
+		$this->load->view('admin/v_footer');
+	}
+
+	public function proses_tambah_foto_galeri($id, $param = null)
+	{
 		$foto = $this->app->get_where('tbl_galeri', ['id' => $id])->row();
 
 		$config['upload_path'] = './assets/backend/upload/galeri/foto/'; //path folder
@@ -532,16 +663,24 @@ class Administrator extends CI_Controller
 			$config['new_image'] = './assets/backend/upload/galeri/foto/' . $gbr['file_name'];
 			$this->load->library('image_lib', $config);
 			$this->image_lib->resize();
-
-			$data = [
-				'galeri_id' => $id,
-				'foto' =>   $gbr['file_name'],
-			];
-
-			$this->app->insert('tbl_foto_galeri', $data);
-			$this->session->set_flashdata('success',  'di tambah');
-
-			redirect('administrator/tambah_foto_galeri/' . $foto->id);
+			if ($param) {
+				$data = [
+					'galeri_id' => $param,
+					'folder_galeri_id' => $id,
+					'foto' =>   $gbr['file_name'],
+				];
+				$this->app->insert('tbl_foto_galeri', $data);
+				$this->session->set_flashdata('success',  'di tambah');
+				redirect('administrator/tambah_foto_galeri/' . $id . "/" . $param);
+			} else {
+				$data = [
+					'galeri_id' => $id,
+					'foto' =>   $gbr['file_name'],
+				];
+				$this->app->insert('tbl_foto_galeri', $data);
+				$this->session->set_flashdata('success',  'di tambah');
+				redirect('administrator/tambah_foto_galeri/' . $foto->id);
+			}
 		} else {
 			echo $this->session->set_flashdata('error', 'Masukan format foto yang benar');
 			redirect('administrator/tambah_foto_galeri/' . $foto->id);
@@ -559,9 +698,9 @@ class Administrator extends CI_Controller
 
 		redirect('administrator/tambah_foto_galeri/' . $foto->galeri_id);
 	}
-	
 
-	
+
+
 	public function keluar()
 	{
 		$this->session->sess_destroy();

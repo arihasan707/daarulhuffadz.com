@@ -49,10 +49,12 @@
                         <td class="text-center"><img
                                 src="<?= base_url('assets/backend/upload/galeri/sampul/' . $value->sampul) ?>"
                                 alt="sampul_galeri" srcset="" width="250"><br>
-                            <span><i class="bi bi-images"></i> <?= $value->jml_foto ?> Foto</span><br>
                             <span><a href="<?= base_url('administrator/tambah_foto_galeri/' . $value->id) ?>"
-                                    class="btn btn-sm btn-success"> <i class="bi bi-plus"></i>Tambah
+                                    class="btn btn-sm btn-success mt-2"> <i class="bi bi-plus"></i>Tambah
                                     Foto</a></span>
+                            <span><a href="<?= base_url('administrator/tambah_folder_galeri/' . $value->id) ?>"
+                                    class="btn btn-sm btn-warning mt-2"> <i class="bi bi-plus"></i>Tambah
+                                    Folder</a></span>
                         </td>
                         <td><a href="" data-bs-toggle="modal" data-bs-target="#edit<?= $value->id ?>"
                                 class="btn btn-sm btn-primary"> <i class="bi bi-pencil"></i></a>
