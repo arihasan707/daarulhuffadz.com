@@ -38,13 +38,15 @@
                                     </div>
                                 </div>
                                 <div class="tp-choose-timeline-single pl-35 wow fadeInUp" data-wow-delay=".8s">
-                                    <h4 class="tp-choose-timeline-single-title mb-15 hover-theme-color"><a
-                                            href="https://maps.app.goo.gl/XEXX97ES9NufiWXu7" targer="blank">Cabang Villa Jago, Bogor (Eksklusif Akhwat)</a></h4>
-                                    <p>Gn. Bunder 2, Kec Pamijahan, Kabupaten Bogor, Jawa Barat 16810</p>
-                                    <div class="maps btn btn-costum">
+                                    <h4 class="tp-choose-timeline-single-title mb-15 hover-theme-color"><a href="#"
+                                            targer="blank">Cabang
+                                            Lampung</a></h4>
+                                    <p>Gg mesjid Nurul Hidayah - Jl Lintas Sumatera KM 92 RT 05/08 , Fajar Gunung,
+                                        Gunung Batin Udik, Terusan Nunyai, Lampung Tengah 34167</p>
+                                    <!-- <div class="maps btn btn-costum">
                                         <a href="https://goo.gl/maps/HBGckrtdiRL1pJXK7" targer="blank">Lihat Lokasi
                                             Maps</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -64,8 +66,9 @@
                                 </div>
                                 <div class="tp-choose-timeline-single mb-55 pl-35 wow fadeInUp" data-wow-delay="1.2s">
                                     <h4 class="tp-choose-timeline-single-title mb-15 hover-theme-color"><a
-                                            href="#">Cabang Jakarta Pusat</a></h4>
-                                    <p>Jl. Rawa Selatan V. Gg. Buntu No.30, RT.17 RW.04, Kec. JoharBaru, Jakarta Pusat
+                                            href="#">Cabang Lombok</a></h4>
+                                    <p>l Raya Tanjung, Medana, Kec. Tanjung,
+                                        Kabupaten Lombok Utara, Nusa Tenggara Barat 83352
                                     </p>
                                 </div>
                                 <div class="tp-choose-timeline-single pl-35 wow fadeInUp" data-wow-delay="1.4s">
@@ -126,7 +129,8 @@
                                         data-wow-delay=".6s">
                                         <h4 class="tp-choose-timeline-single-title mb-15 hover-theme-color"><a
                                                 href="#">Cabang Villa Cahaya Qur'an, Bogor</a></h4>
-                                        <p>Jl. Raya Rancabungur, No. 60, RT 01, RW 03, Kec. Ranca Bungur, Kabupaten Bogor, Jawa Barat, 16310</p>
+                                        <p>Jl. Raya Rancabungur, No. 60, RT 01, RW 03, Kec. Ranca Bungur, Kabupaten
+                                            Bogor, Jawa Barat, 16310</p>
                                     </div>
                                 </div>
                             </div>
