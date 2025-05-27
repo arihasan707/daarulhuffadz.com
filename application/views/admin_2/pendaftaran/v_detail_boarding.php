@@ -4,7 +4,7 @@
             <h1>Detail PMB Online</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="<?= base_url('admin_satu/') ?>">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('admin_dua/') ?>">Beranda</a></li>
                     <li class="breadcrumb-item">PMB Online</li>
                     <li class="breadcrumb-item">PMB Boarding School</li>
                     <li class="breadcrumb-item active">Detail PMB Online</li>
