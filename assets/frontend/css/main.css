@@ -7441,7 +7441,7 @@ nav ul li a {
 @media (max-width: 767px) {
 	.ablog-4 img {
 		/* min-height: 200px; */
-		max-width: 100vh;
+		/* max-width: 100vh; */
 	}
 	.ablog__img4 {
 		right: 200px;
